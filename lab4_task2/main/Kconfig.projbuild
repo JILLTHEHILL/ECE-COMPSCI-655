@@ -1,0 +1,47 @@
+menu "Application Configuration"
+
+	config ESP_WIFI_SSID
+		string "WiFi SSID"
+		default "myssid"
+		help
+			SSID (network name) for the example to connect to.
+
+	config ESP_WIFI_PASSWORD
+		string "WiFi Password"
+		default "mypassword"
+		help
+			WiFi password (WPA or WPA2) for the example to use.
+
+	config ESP_MAXIMUM_RETRY
+		int "Maximum retry"
+		default 5
+		help
+			Set the Maximum retry to avoid station reconnecting to the AP unlimited when the AP is really inexistent.
+
+	choice TARGET_HOST
+		prompt "Ping Target Host"
+		default TARGET_OWN_GATEWAY
+		help
+			Select ping target host.
+		config TARGET_OWN_GATEWAY
+			bool "Ping target is own gateway"
+			help
+				Ping target is own gateway.
+		config TARGET_ESPRESSIF
+			bool "Ping target is www.espressif.com"
+			help
+				Ping target is www.espressif.com.
+		config TARGET_ANY
+			bool "Ping target is any server"
+			help
+				Ping target is any server.
+	endchoice
+
+	config PING_TARGET
+		depends on TARGET_ANY
+		string "Ping target"
+		default "myserver.local"
+		help
+			Ping target IP address or mDNS hostname.
+
+endmenu
