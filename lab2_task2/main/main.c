@@ -8,7 +8,7 @@
 #include "lvgl.h"              // LVGL graphics library
 
 // Tag for ESP-IDF logging
-static const char *TAG = "lab2_task1";
+static const char *TAG = "lab2_task2";
 
 // Board-specific pin and display configuration
 #include "esp32s3_box_lcd_config.h"
@@ -81,10 +81,11 @@ static lv_disp_t *gui_setup(void) {
       .hres = EXAMPLE_LCD_H_RES,
       .vres = EXAMPLE_LCD_V_RES,
       .monochrome = false,
+      .flags = {.swap_bytes = true},
       .rotation = {
           .swap_xy = false,
-          .mirror_x = false,
-          .mirror_y = false,
+          .mirror_x = true,
+          .mirror_y = true,
       }};
   lv_disp_t *disp = lvgl_port_add_disp(&disp_cfg);
 

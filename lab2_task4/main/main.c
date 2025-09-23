@@ -9,7 +9,8 @@
 #include "esp_timer.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#include "lvgl.h"       // LVGL graphics library
+#include "lvgl.h" // LVGL graphics library
+#include "pin_config.h"
 #include <driver/adc.h> // ADC driver
 #include <stdio.h>
 
@@ -87,10 +88,11 @@ static lv_disp_t *gui_setup(void) {
       .hres = EXAMPLE_LCD_H_RES,
       .vres = EXAMPLE_LCD_V_RES,
       .monochrome = false,
+      .flags = {.swap_bytes = true},
       .rotation = {
           .swap_xy = false,
-          .mirror_x = false,
-          .mirror_y = false,
+          .mirror_x = true,
+          .mirror_y = true,
       }};
   lv_disp_t *disp = lvgl_port_add_disp(&disp_cfg);
 
