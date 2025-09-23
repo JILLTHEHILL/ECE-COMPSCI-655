@@ -1,0 +1,1 @@
+There is no code template for lab3_task2. You shall use an oscilloscope to capture one full transaction of 40 bits sent out by the DHT11 sensor.
