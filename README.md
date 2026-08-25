@@ -4,3 +4,7 @@ This repository hosts code templates and resources for the lab sessions of ECE/C
 ## License
 This repository is intended for **educational use** in COMPSCI/ECE 655L.
 All code is provided as-is under course policies. Redistribution outside course use may be restricted.
+
+make sure to run 
+. ~/esp/esp-idf/export.sh 
+before every session
